@@ -28,7 +28,7 @@ To try it yourself:
 
 Inside the workflow you’ll see jobs that, every hour:
 
-- Generate multiple commits by overwriting a tiny file (`ita/test.txt`)  
+- Generate multiple commits by overwriting a tiny file.
 - Open & close issues  
 - Create, merge & clean up pull requests  
 - Update the repository wiki  
