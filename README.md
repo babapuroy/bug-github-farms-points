@@ -6,6 +6,8 @@ Hi there! I’m Luca ([@bocaletto-luca](https://github.com/bocaletto-luca)), and
 
 Feel free to explore, reproduce, and share feedback. If you agree this could be abused at scale, please consider upvoting my [feedback issue on GitHub](https://github.com/github/feedback) or submitting your own.
 
+[![Read Online](https://img.shields.io/badge/Read%20Online-Here-blue?style=flat-square&logo=github)](https://github.com/bocaletto-luca/bug-github-farms-points/index.html)
+
 ---
 
 ## 📄 Proof of Concept
