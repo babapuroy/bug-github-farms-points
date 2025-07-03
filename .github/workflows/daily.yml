@@ -1,6 +1,4 @@
-# File: .github/workflows/daily-two-commits.yml
-
-name: Farm 2 commit giornalieri
+name: daily
 
 permissions:
   contents: write
