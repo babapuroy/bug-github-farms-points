@@ -1,0 +1,40 @@
+name: Daily
+
+# serve per poter pushare su main
+permissions:
+  contents: write
+
+# ogni 20 ore allo scoccare del minuto 00
+on:
+  schedule:
+    - cron: '0 */20 * * *'
+  workflow_dispatch:
+
+jobs:
+  daily-commit:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Configura Git come bocaletto-luca
+        run: |
+          git config user.name "bocaletto-luca"
+          git config user.email "${{ secrets.BOCA_EMAIL }}"
+
+      - name: Prepara src/ e timestamp
+        run: |
+          mkdir -p src
+          echo "TIMESTAMP=$(date -u +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_ENV
+
+      - name: Appendi e committa src/daily.txt
+        run: |
+          echo "daily commit at $TIMESTAMP" >> src/daily.txt
+          git add src/daily.txt
+          git commit --allow-empty -m "chore: daily commit at $TIMESTAMP"
+
+      - name: Push su main
+        run: git push origin main
