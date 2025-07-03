@@ -23,7 +23,7 @@ jobs:
       - name: Configura Git
         run: |
           git config user.name "bocaletto-luca"
-          git config user.email "bocalettoluca82@gmail.com"
+          git config user.email "${{ secrets.BOCA_EMAIL }}"
 
       - name: Imposta timestamp
         run: echo "TS=$(date -u +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_ENV
