@@ -1,15 +1,16 @@
-name: Sup
+# File: .github/workflows/daily-points.yml
+
+name: Daily Farm Points
 
 permissions:
   contents: write
   issues: write
   pull-requests: write
-  pages: write
-  packages: write    # opzionale, se usi softprops/action-gh-release
+  packages: write
 
 on:
   schedule:
-    - cron: '0 0 * * *'    # ogni giorno a mezzanotte
+    - cron: '0 0 * * *'
   workflow_dispatch:
 
 jobs:
@@ -17,28 +18,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repo principale
         uses: actions/checkout@v3
         with:
+          token: ${{ secrets.PAT_BOC }}
           fetch-depth: 0
 
       - name: Configura Git per bocaletto-luca
         run: |
           git config user.name "bocaletto-luca"
-          git config user.email "${{ secrets.BOCA_EMAIL }}"
+          git config user.email "bocalettoluca82@gmail.com"
 
       - name: Imposta timestamp
         run: echo "TIMESTAMP=$(date -u +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_ENV
 
-      - name: Commit giornaliero (src/daily.txt)
+      - name: Commit src/daily.txt
         run: |
           mkdir -p src
           echo "daily at $TIMESTAMP" >> src/daily.txt
           git add src/daily.txt
           git commit --allow-empty -m "chore: daily commit at $TIMESTAMP"
-
-      - name: Push commit
-        run: git push origin main
+          git push origin main
 
       - name: Apri e chiudi un’issue
         uses: actions/github-script@v6
@@ -88,20 +88,38 @@ jobs:
               ref: `heads/${branch}`
             });
 
-      - name: Aggiorna Wiki Home.md
-        uses: devops-infra/action-wiki@v2
+      - name: Commenta sull’ultima issue
+        uses: actions/github-script@v6
         with:
-          github_token: ${{ secrets.PAT_BOC }}
-      - name: Commit wiki update
-        run: |
-          echo "- daily wiki at $TIMESTAMP" > docs/Home.md
-          git add docs/Home.md
-          git commit -m "chore: daily wiki $TIMESTAMP"
-          git push origin main
+          github-token: ${{ secrets.PAT_BOC }}
+          script: |
+            const issues = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              per_page: 1,
+              sort: "created",
+              direction: "desc"
+            });
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: issues.data[0].number,
+              body: `daily-comment at ${new Date().toISOString()}`
+            });
 
-      - name: Imposta tag e crea release
+      - name: Aggiorna Wiki via git clone
+        run: |
+          git clone https://x-access-token:${{ secrets.PAT_BOC }}@github.com/${{ github.repository }}.wiki.git wiki
+          cd wiki
+          echo "- daily wiki at $TIMESTAMP" > Home.md
+          git add Home.md
+          git commit -m "chore: daily wiki $TIMESTAMP"
+          git push origin master
+
+      - name: Crea tag e release
         id: set-tag
         run: echo "TAG=$(date +'%Y%m%d%H%M')" >> $GITHUB_ENV
+
       - name: Crea GitHub Release
         uses: softprops/action-gh-release@v1
         with:
