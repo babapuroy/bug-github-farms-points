@@ -1,15 +1,15 @@
-name: Super
+name: Sup
 
 permissions:
   contents: write
   issues: write
   pull-requests: write
   pages: write
-  releases: write
+  packages: write    # opzionale, se usi softprops/action-gh-release
 
 on:
   schedule:
-    - cron: '0 0 * * *'   # ogni giorno a mezzanotte
+    - cron: '0 0 * * *'    # ogni giorno a mezzanotte
   workflow_dispatch:
 
 jobs:
@@ -17,33 +17,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout con token di bocaletto-luca
+      - name: Checkout
         uses: actions/checkout@v3
         with:
-          token: ${{ secrets.PAT_BOC }}
           fetch-depth: 0
 
       - name: Configura Git per bocaletto-luca
         run: |
           git config user.name "bocaletto-luca"
-          git config user.email "bocalettoluca82@gmail.com"
+          git config user.email "${{ secrets.BOCA_EMAIL }}"
 
-      - name: Prepara src/ e timestamp
+      - name: Imposta timestamp
+        run: echo "TIMESTAMP=$(date -u +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_ENV
+
+      - name: Commit giornaliero (src/daily.txt)
         run: |
           mkdir -p src
-          echo "TIMESTAMP=$(date -u +'%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_ENV
-
-      - name: Commit src/test.txt (solo autore)
-        run: |
-          echo "farm at $TIMESTAMP" > src/test.txt
-          git add src/test.txt
-          git commit --allow-empty -m "chore: update test.txt at $TIMESTAMP"
-
-      - name: Commit src/test2.txt (solo autore)
-        run: |
-          echo "farm at $TIMESTAMP" > src/test2.txt
-          git add src/test2.txt
-          git commit --allow-empty -m "chore: update test2.txt at $TIMESTAMP"
+          echo "daily at $TIMESTAMP" >> src/daily.txt
+          git add src/daily.txt
+          git commit --allow-empty -m "chore: daily commit at $TIMESTAMP"
 
       - name: Push commit
         run: git push origin main
@@ -94,25 +86,6 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               ref: `heads/${branch}`
-            });
-
-      - name: Commenta sull’ultima issue
-        uses: actions/github-script@v6
-        with:
-          github-token: ${{ secrets.PAT_BOC }}
-          script: |
-            const issues = await github.rest.issues.listForRepo({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              per_page: 1,
-              sort: "created",
-              direction: "desc"
-            });
-            await github.rest.issues.createComment({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              issue_number: issues.data[0].number,
-              body: `daily-comment at ${new Date().toISOString()}`
             });
 
       - name: Aggiorna Wiki Home.md
